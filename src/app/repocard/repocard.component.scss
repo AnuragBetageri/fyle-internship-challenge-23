@@ -5,20 +5,21 @@ section
     flex-wrap: wrap;
     display: flex;
     justify-content: space-evenly;
-    row-gap: 1.5cm;
-
+    row-gap: 2.5cm;
+  padding: 5cm 3cm;
 
 .repo_card {
-    width: 15cm;
+    width: 16cm;
     height: auto;
-    background-color: rgb(241, 241, 241);
-    border-radius: 0.5cm;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.4cm;
     overflow: hidden;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-      rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    
   
     div {
       
@@ -28,7 +29,7 @@ section
         padding: 0.65cm;
         border-bottom: solid rgb(56, 56, 56) 2px;
   
-        background-color: rgb(187, 187, 187);
+        background-color: rgb(199, 199, 199);
       }
   
       .count {
@@ -77,6 +78,7 @@ section
         max-height: 3em;
         overflow: hidden;
         margin-bottom: 0.4cm;
+        font-weight: bold;
   
       //      &::-webkit-scrollbar {
       //     width: 0.1cm;

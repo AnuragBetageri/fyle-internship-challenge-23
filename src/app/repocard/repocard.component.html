@@ -13,7 +13,7 @@
               />
             </div>
             <div>
-              <h2>{{ repoooo.watchers_count }}</h2>
+              <h2 class="capitalize">{{ repoooo.watchers_count }}</h2>
               <img
                 src="../../assets/images/fork.png"
                 alt=""
@@ -22,7 +22,7 @@
               />
             </div>
             <div>
-              <h2 class="visibility">{{ repoooo.visibility }}</h2>
+              <h2 class="visibility" class="capitalize">{{ repoooo.visibility }}</h2>
               <!-- <img src="../../assets/images/fork.png" alt="" srcset=""> -->
             </div>
           </div>
@@ -35,7 +35,7 @@
       
           
           <div *ngIf="repoooo.langs.length != 0" class="lang_body">
-            <div *ngFor="let lang of repoooo.langs">
+            <div *ngFor="let lang of repoooo.langs" class="uppercase">
               {{ lang }}
             </div>
           </div>

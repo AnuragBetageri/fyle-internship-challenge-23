@@ -1,38 +1,64 @@
-.container {
-  background-color: rgb(37, 37, 37);
+.MainBody {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  width: 100vw;
-}
+  row-gap: 1.5cm;
+  padding: 1.5cm 0;
 
-.repo_card {
-  // color: aliceblue;
-  background-color: red;
-  width: 10cm;
-  height: 5cm;
-  margin: 0.5cm;
-}
+  .header
+  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
+    h2
+    {
+      font-size: 0.5cm;
+      font-weight: 700;
+      color: rgb(59, 59, 59);
+    }
+  }
+}
 h1 {
-  font-weight: bolder;
-  font-size: 0.6cm;
-  text-transform: capitalize;
+  font-size: 2.5cm;
 }
-
-.lang {
-  background-color: black;
+input {
+  width: 50vw;
+  background-color: rgb(32, 32, 32);
   color: white;
-  font-size: 0.5cm;
-  padding: 0.2cm 0.7cm;
-  width: max-content;
+  padding: 0.5cm 1cm;
+  // border-radius: 0.5cm;
+  box-shadow: rgba(0, 0, 0, 0.39) 0px 22px 70px 4px;
+  font-weight: bolder;
 }
 
-input
-{
-    width: 100vw;
-    height: 1cm;
-    background-color: rebeccapurple;
-    
+.searchBar {
+
+
+
+  display: flex;
+
+
+  button {
+    display: flex;
+    column-gap: 0.2cm;
+    font-weight: 900;
+    // font-size: larger;
+    border: solid black 3px;
+    padding: 0.4cm 1.1cm;
+    transition-duration: 1s;
+    box-shadow: rgba(0, 0, 0, 0.39) 0px 22px 70px 4px;
+  
+    img {
+      height: 0.7cm;
+    }
+    &:hover {
+      background-color: black;
+      color: white;
+      // border-color: rgb(255, 255, 255);
+    }
+  }
 }
+
+

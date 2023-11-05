@@ -1,8 +1,25 @@
-<div class="grid h-screen place-items-center">
-  <div class="font-bold text-3xl">Fyle Internship Challenge</div>
+<div class="MainBody">
 
-  <input type="text" #inputValue class="input" />
-  <button (click)="search(inputValue)">search</button>
+ <div class="header">
+  <h1>
+    GitHub - FIND
+  </h1>
+  <h2>
+    One stop for searching Github Profiles
+  </h2>
+
+ </div>
+
+  <div class="searchBar">
+    <input type="text" #inputValue class="input" placeholder="Enter Your GitHub Username " />
+  <button class="custom-btn btn-16" (click)="search(inputValue)" >
+    <img src="../assets/images/fork.png" alt="" srcset="">
+    FIND</button>
+  </div>
+
+  <app-user-card></app-user-card>
+
+
   <div *ngIf="flag == false">
     <h1>{{ username }} : NO DATA FOUND</h1>
   </div>
