@@ -1,3 +1,44 @@
-<section>
-    <p>user-card works!</p>
+<section *ngFor="let userdata of user">
+  <div class="left">
+    <div class="avatar">
+      <img src={{userdata.avatar_url}} alt="" srcset="" />
+    </div>
+    <h1>{{userdata.name}}</h1>
+  </div>
+  <div class="right">
+
+    <div class="section1">
+        <div class="count">
+            <div>Followers : <span>{{userdata.followers}}</span></div>
+            <div>Following : <span>{{userdata.following}}</span></div>
+            <div>Public Repos : <span>{{userdata.public_repos}}</span></div>
+        </div>
+        <div class="bio">
+            <p>
+                {{userdata.bio}}
+            </p>
+        </div>
+    </div>
+    <div class="section2">
+        <div class="mostLang">
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username={{userdata.login}}&theme=vue&layout=compact&hide" alt="" srcset="">
+        </div>
+
+        <div class="connect">
+            <a href="https://twitter.com/{{userdata.twitter_username}}">
+                <div>
+                    <img src="../../assets/images/twitter.png" alt="">
+                    Twiter 
+                </div>
+            </a>
+            <a href= {{userdata.url}}>
+                <div>
+                    <img src="../../assets/images/github.png" alt="">
+
+                    GitHub
+                </div>
+            </a>
+        </div>
+    </div>
+  </div>
 </section>

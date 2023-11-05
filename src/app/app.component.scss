@@ -4,6 +4,17 @@
   align-items: center;
   row-gap: 1.5cm;
   padding: 1.5cm 0;
+  // background-image: url('../assets/images/github.png');
+
+  .body_img
+  {
+    position: absolute;
+    top: -1cm;
+    margin-left: -1cm;
+    opacity: 0.1;
+    z-index: -99;
+    height: 90vh;
+  }
 
   .header
   {

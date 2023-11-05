@@ -10,8 +10,8 @@ import './shared/repos.model';
 })
 export class AppComponent implements OnInit {
   constructor(private apiService: ApiService) {}
-  username: string = 'nithishrcta';
-  user: any;
+  username: string = 'Anurag';
+ 
 
   repos_data: any;
   langs: any[] = [];
@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   flag: boolean = true;
   ngOnInit() {
     this.loadrepo();
-    this.username = '';
+
   
 
   }
@@ -27,6 +27,7 @@ export class AppComponent implements OnInit {
   search(inputValue: HTMLInputElement) {
     this.flag = true;
     this.apiService.reposs.length = 0;
+    this.apiService.userdata.length = 0;
     this.username = inputValue.value;
     this.loadrepo();
   }
@@ -34,8 +35,10 @@ export class AppComponent implements OnInit {
   loadrepo() {
     this.apiService.getUser(this.username).subscribe(
       (data) => {
-        this.user = data;
-        console.log(this.user);
+
+        console.log(data);
+        this.apiService.addUserData(data);
+        // this.apiService.userdata = data;
       },
       (error: any) => {
         this.flag = false;

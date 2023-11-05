@@ -1,8 +1,127 @@
-section
-{
-    margin-top: 2cm;
-    background-color: red;
-    width: 80vw;
-    height: 12cm;
+section {
+  margin-top: 1.5cm;
+  //   background-color: rgb(201, 201, 201);
+  width: 70vw;
+  height: 12cm;
+  padding: 0.65cm;
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+  border-radius: 1cm;
+  background-color: white;
 
+
+  .left {
+    // padding: 0.75cm 0;
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    // background-color: blue;
+    .avatar {
+      width: 6cm;
+      height: 6cm;
+      border-radius: 3cm;
+      background-color: black;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: violet;
+      font-weight: bolder;
+      // letter-spacing: 0.1cm;
+      font-size: 0.6cm;
+    }
+  }
+
+  .right {
+    width: 65%;
+    padding: .5cm 1cm;
+    border-left: solid rgba(238, 130, 238, 0.411) 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .section1 {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5cm;
+
+      .count {
+        display: flex;
+        justify-content: space-around;
+        font-weight: bolder;
+
+        span
+        {
+            color: violet;
+        }
+      }
+
+      .bio {
+        p {
+          padding-left: 1cm;
+          max-height: 3em; /* Adjust this value to limit the number of lines */
+          overflow: hidden;
+          line-height: 1.2em;
+        }
+      }
+    }
+
+    .section2 {
+      display: flex;
+      padding-left: 1cm;
+      gap: 2cm;
+
+      .mostLang{
+        width: 11cm;
+        height: 5.5cm;
+        padding-left: 0.5cm;
+        // background-color: red;
+        
+        img
+        {
+            height: 5.5cm;
+
+        }
+      }
+
+      .connect
+      {
+        height: 100%;
+        // background-color: red;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        font-weight: bolder;
+        color: violet;
+
+
+        div
+        {
+            display: flex;
+            gap: 0.5cm;
+            padding: 0.25cm 0.75cm;
+            // background-color: red;
+            width: 100%;
+            border: solid 3px violet;
+            transition-duration: 1s;
+
+
+            &:hover
+            {
+                background-color: violet;
+                color: white;
+                border: solid 3px #96189a;
+
+            }
+
+            img
+            {
+                height: 0.75cm;
+            }
+        }
+      }
+    }
+  }
 }
