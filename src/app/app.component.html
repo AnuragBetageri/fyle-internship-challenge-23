@@ -11,8 +11,8 @@
  </div>
 
   <div class="searchBar">
-    <input type="text" #inputValue class="input" placeholder="Enter Your GitHub Username " />
-  <button (click)="search(inputValue)" >
+    <input type="text" #searchvalue class="input" placeholder="Enter Your GitHub Username " />
+  <button (click)="search(searchvalue)" >
     <img src="../assets/images/search.png" alt="" srcset="">
     FIND</button>
   </div>
@@ -23,6 +23,21 @@
   <div *ngIf="flag == false">
     <h1>{{ username }} : NO DATA FOUND</h1>
   </div>
+<section class="repoSection">
+  <div class="repo_header">
+    <div class="refreshRepo">
+      <input type="number" #perpagecount placeholder="No. of REPOS per Page" />
+    
+      <button (click)="refreshRepo(perpagecount)">Refresh</button>
+     </div>
+    <div class="pageSwitch">
+      <button (click)="prePage()">Previos</button>
+      <button (click)="nextPage()">Next</button>
+    
+    </div>
+  </div>
+  <app-repocard></app-repocard>
+</section>
 
-<app-repocard></app-repocard>
+
 </div>

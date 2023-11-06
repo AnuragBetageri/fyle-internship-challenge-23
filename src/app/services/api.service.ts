@@ -19,8 +19,9 @@ export class ApiService {
   getUser(githubUsername: string) {
     return this.httpClient.get(this.base_url + githubUsername);
   }
-  getRepo(githubUsername: string) {
-    return this.httpClient.get(`${this.base_url + githubUsername}/repos`);
+  getRepo(githubUsername: string ,page_number :number ,per_page: Number) {
+    console.log(per_page + "hrlloo +" + page_number)
+    return this.httpClient.get(`${this.base_url + githubUsername}/repos?per_page=${per_page}&page=${page_number}`);
   }
   getLang(repo: any) {
     return this.httpClient.get(

@@ -6,6 +6,7 @@
   padding: 1.5cm 0;
   // background-image: url('../assets/images/github.png');
 
+
   .body_img
   {
     position: absolute;
@@ -34,7 +35,7 @@
 h1 {
   font-size: 2.5cm;
 }
-input {
+.input {
   width: 50vw;
   background-color: rgb(32, 32, 32);
   color: white;
@@ -70,6 +71,72 @@ input {
       // border-color: rgb(255, 255, 255);
     }
   }
+}
+
+
+.repoSection
+{
+  padding: 5cm 3cm;
+  width: 95vw;
+  // background-color: red;
+  display: flex;
+  flex-direction: column;
+  
+  
+
+  .repo_header
+  {
+
+    background-color: violet;
+    padding: 1cm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+    .refreshRepo
+  {
+    background-color: red;
+
+    input
+    {
+      background-color: black;
+      padding: 0.3cm 0.75cm;
+    border: solid black 3px;
+font-weight: bolder;
+color: white;
+    }
+
+    button
+    {
+      background-color: white;
+      color: black;
+    border: solid black 3px;
+
+      padding: 0.3cm 0.75cm;
+font-weight: bolder;
+
+
+    }
+
+  }
+  }
+
+  .pageSwitch
+  {
+
+    button
+    {
+      background-color: white;
+      color: black;
+    border: solid black 3px;
+      width: 3.5cm;
+      padding: 0.3cm 0;
+      margin-left: 0.5cm;
+font-weight: bolder;
+    }
+  }
+  
+
 }
 
 
