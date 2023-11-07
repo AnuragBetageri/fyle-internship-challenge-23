@@ -42,4 +42,44 @@
       </div>
     </div>
   </section>
+
+
+  <section class="bg-white mt-[1.5cm] w-[70vw] h-[12cm] p-[0.65cm] flex rounded-[1cm] shadow-[rgba(0,_0,_0,_0.3)_4px_30px_90px]" *ngIf="true">
+
+    <div class="w-[35%] flex justify-evenly items-center flex-col">
+      <div>
+        <ngx-skeleton-loader
+          count="1"
+          appearance="circle"
+          [theme]="{ height: '6cm', width: '6cm'  ,'background-color': '#e9ecef'}"
+          animation="progress"
+          
+        ></ngx-skeleton-loader>
+      </div>
+      <div>
+        <ngx-skeleton-loader count="1" appearance="line" [theme]="{height :'1.2cm' , width: '7cm' ,'background-color': '#e9ecef',} " animation="progress"></ngx-skeleton-loader>
+      </div>
+    </div>
+    <div class="w-[65%] flex flex-col justify-between pt-9 ">
+     <div class="flex justify-around mb-4">
+      <div><ngx-skeleton-loader count="1" appearance="line" [theme]="{height :'0.75cm' , width: '2.5cm'  ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader></div>
+      <div><ngx-skeleton-loader count="1" appearance="line" [theme]="{height :'0.75cm' , width: '2.5cm'  ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader></div>
+      <div><ngx-skeleton-loader count="1" appearance="line" [theme]="{height :'0.75cm' , width: '2.5cm'  ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader></div>
+     </div>
+     <div>
+      <ngx-skeleton-loader count="3" appearance="line" [theme]="{width: '100%'  ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader>
   
+      <div class="flex gap-6">
+  
+  
+          <ngx-skeleton-loader count="1" appearance="line" [theme]="{height :'5.5cm' , width: '11cm' ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader>
+          <div class=" flex  flex-col ml-10 justify-evenly">
+          <ngx-skeleton-loader count="1" appearance="line" [theme]="{height :'1.2cm' , width: '5cm' ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader>
+          <ngx-skeleton-loader count="1" appearance="line" [theme]="{height :'1.2cm' , width: '5cm' ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader>
+  
+          </div>
+        </div>
+    </div>
+  
+    </div>
+  </section>
