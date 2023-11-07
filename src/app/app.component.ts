@@ -9,19 +9,8 @@ import './shared/repos.model';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private apiService: ApiService) {}
-  username: string = 'Anurag';
-
-  page_number: number = 1;
-  per_page: number = 10;
-
-  repos_data: any;
-  langs: any[] = [];
-
-  flag: boolean = true;
+  constructor() {}
   ngOnInit() {
-
-    // this.loadrepo(this.page_number, this.per_page);
   }
 }
  

@@ -15,34 +15,26 @@ export class ApiService {
   base_url = 'https://api.github.com/users/';
   reposs: repos[] = [];
   userdata: user[] = [];
-  isLoading: boolean = true;
-
-  selected_data : any;
+  selected_data: any;
   userSelected = new EventEmitter<any>();
-  loading = new EventEmitter<any>();
   //services to get data (name , repo list , repo languages)
   getUser(githubUsername: string) {
-    // this.isLoading = true;
-    
-    this.loading.emit(this.isLoading)
-
     this.selected_data = this.httpClient.get(this.base_url + githubUsername);
-    // this.isLoading = false; 
-    // this.loading.emit(this.isLoading)
     return this.selected_data;
-    
   }
-  getRepo(githubUsername: string ,page_number :number ,per_page: Number) {
-    console.log(per_page + "hrlloo +" + page_number)
-    return this.httpClient.get(`${this.base_url + githubUsername}/repos?per_page=${per_page}&page=${page_number}`);
+  getRepo(githubUsername: string, page_number: number, per_page: Number) {
+    console.log(per_page + 'hrlloo +' + page_number);
+    return this.httpClient.get(
+      `${
+        this.base_url + githubUsername
+      }/repos?per_page=${per_page}&page=${page_number}`
+    );
   }
   getLang(repo: any) {
     return this.httpClient.get(
       `https://api.github.com/repos/${repo.full_name}/languages`
     );
   }
-
-  // stackrepos(name :string , forks : any,visibility : string, url : string,watchers_count :any,langs : any[])
 
   //Strcturing the REPO DATA
   stackrepos(repos_data: any, langs: any[]) {
@@ -74,7 +66,4 @@ export class ApiService {
       )
     );
   }
-
-
-
 }

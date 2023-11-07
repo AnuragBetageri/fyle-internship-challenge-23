@@ -5,9 +5,9 @@ import { delay } from 'rxjs';
 @Component({
   selector: 'app-repocard',
   templateUrl: './repocard.component.html',
-  styleUrls: ['./repocard.component.scss']
+  styleUrls: ['./repocard.component.scss'],
 })
-export class RepocardComponent implements OnInit{
+export class RepocardComponent implements OnInit {
   constructor(private apiService: ApiService) {}
 
   repomodel: repos[] = [];
@@ -19,55 +19,39 @@ export class RepocardComponent implements OnInit{
   loopArray: any[] = Array(this.per_page).fill(0);
   repos_data: any;
   langs: any[] = [];
-loading : boolean =true;
-  flag: boolean = true;
+  loading: boolean = true;
+
   ngOnInit(): void {
     this.repomodel = this.apiService.reposs;
-    
+
+    this.loadrepo(this.page_number, this.per_page);
+
+    this.apiService.userSelected.subscribe((name: string) => {
+      this.username = name;
       this.loadrepo(this.page_number, this.per_page);
-
-      this.apiService.userSelected.subscribe((name : string)=>
-      {
-        this.username = name;
-        this.loadrepo(this.page_number, this.per_page);
-    
-      });
+    });
   }
 
-  refreshRepo(perpagecount : HTMLInputElement)
-  {
+  refreshRepo(perpagecount: HTMLInputElement) {
+    this.page_number = 1;
 
-    this.page_number =1;
-    
     this.per_page = parseInt(perpagecount.value, 10);
-    console.log(this.per_page)
-    // this.apiService.reposs.length = 0;
 
     this.loadrepo(this.page_number, this.per_page);
-
   }
 
-  nextPage( ) {
-   if( this.page_number < this.apiService.userdata[0].public_repos + 1  )
-   {
-    this.page_number++;
-    this.loadrepo(this.page_number, this.per_page);
-   }
-
-  }
-  prePage( ) {
-    // this.apiService.reposs.length = 0;
-
-    this.page_number--;
-    if( this.page_number > 0)
-    {
+  nextPage() {
+    if (this.page_number < this.apiService.userdata[0].public_repos + 1) {
+      this.page_number++;
       this.loadrepo(this.page_number, this.per_page);
     }
-   
-    
-
   }
-
+  prePage() {
+    this.page_number--;
+    if (this.page_number > 0) {
+      this.loadrepo(this.page_number, this.per_page);
+    }
+  }
 
   loadrepo(page_n: number, per_p: number) {
     // get Repo data and languages used in those repo and bundle them in repos.model(for better data maintaince)
@@ -75,20 +59,17 @@ loading : boolean =true;
     this.loading = true;
     this.apiService.reposs.length = 0;
     this.apiService
-      .getRepo(this.username, page_n, per_p).pipe(delay(1000))
+      .getRepo(this.username, page_n, per_p)
+      .pipe(delay(1000))
       .subscribe((data) => {
         this.repos_data = data;
-        console.log(this.repos_data);
-        console.log('hellooo')
-        this.loading =false;
+        this.loading = false;
         this.repos_data.forEach((repo: any) => {
           this.apiService.getLang(repo).subscribe((data) => {
             this.langs = Object.keys(data);
-            console.log(this.langs);
             this.apiService.stackrepos(repo, this.langs);
           });
         });
       });
   }
 }
-
