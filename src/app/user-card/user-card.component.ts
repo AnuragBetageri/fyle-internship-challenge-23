@@ -33,7 +33,7 @@ export class UserCardComponent implements OnInit {
     this.loader = true;
     this.apiService
       .getUser(this.username)
-      .pipe(delay(1000))
+      .pipe(delay(500))
       .subscribe(
         (data: any) => {
           this.apiService.addUserData(data);

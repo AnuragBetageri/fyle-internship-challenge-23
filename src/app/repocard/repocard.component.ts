@@ -60,7 +60,7 @@ export class RepocardComponent implements OnInit {
     this.apiService.reposs.length = 0;
     this.apiService
       .getRepo(this.username, page_n, per_p)
-      .pipe(delay(1000))
+      .pipe(delay(500))
       .subscribe((data) => {
         this.repos_data = data;
         this.loading = false;
