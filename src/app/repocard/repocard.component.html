@@ -1,7 +1,21 @@
+<section class="repoSection py-[5cm] px-[3cm] w-[95vw] flex flex-col ">
+  <div class="repo_header bg-fuchsia-300 p-[1cm] flex justify-between items-center">
+    <div class="refreshRepo ">
+      <input class="bg-black py-[0.3cm] px-[0.75cm] border-black border-[3px] font-extrabold text-white" type="number" #perpagecount placeholder="No. of REPOS per Page" />
+    
+      <button (click)="refreshRepo(perpagecount)" class="bg-white text-black border-black border-[3px] py-[0.3cm] px-[0.75cm] font-extrabold">Refresh</button>
+     </div>
+    <div class="pageSwitch">
+      <button (click)="prePage()" class="bg-white text-black border-black border-[3px] w-[3cm] py-[0.3cm] ml-[0.5cm] font-extrabold duration-500 hover:bg-black hover:text-white hover:border-white">Previos</button>
+      <button (click)="nextPage()" class="bg-white text-black border-black border-[3px] w-[3cm] py-[0.3cm] ml-[0.5cm] font-extrabold duration-500 hover:bg-black hover:text-white hover:border-white">Next</button>
+    </div>
+  </div>
+
 <section
   class="flex flex-wrap justify-evenly gap-y-20 px-20 py-28 shadow-[inset_0px_-17px_71px_24px_#00000024]"
 >
-  <div
+  <div class="flex flex-wrap justify-evenly gap-y-20" *ngIf="loading == false">
+    <div
     class="repo_card w-[16cm] flex flex-col h-auto bg-white rounded-[0.4cm] overflow-hidden shadow-[rgba(0,_0,_0,_0.2)_4px_30px_90px]"
     *ngFor="let repoooo of repomodel"
   >
@@ -71,23 +85,30 @@
       <div *ngIf="repoooo.langs.length == 0" class="h-[1.5cm]">No data</div>
     </div>
   </div>
+  </div>
+ <div class="flex flex-wrap justify-evenly gap-y-20" *ngIf="loading">
+  <section class="w-[16cm] flex flex-col h-[7cm] p-[0.65cm] bg-white rounded-[0.4cm] overflow-hidden shadow-[rgba(0,_0,_0,_0.2)_4px_30px_90px]" *ngFor="let i of loopArray">
+    <div class="flex justify-around mb-4">
+      <div><ngx-skeleton-loader count="1" appearance="line" [theme]="{height :'0.75cm' , width: '2.5cm'  ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader></div>
+      <div><ngx-skeleton-loader count="1" appearance="line" [theme]="{height :'0.75cm' , width: '2.5cm'  ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader></div>
+      <div><ngx-skeleton-loader count="1" appearance="line" [theme]="{height :'0.75cm' , width: '2.5cm'  ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader></div>
+     </div>
+  
+  <div class="flex flex-col w-[100%]  px-10">
+    <ngx-skeleton-loader count="3" appearance="line" [theme]="{width: '100%'  ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader>
+  
+  </div>
+  <div class="flex justify-around ">
+    <div><ngx-skeleton-loader count="1" appearance="line" [theme]="{height :'0.75cm' , width: '2.5cm'  ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader></div>
+    <div><ngx-skeleton-loader count="1" appearance="line" [theme]="{height :'0.75cm' , width: '2.5cm'  ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader></div>
+    <div><ngx-skeleton-loader count="1" appearance="line" [theme]="{height :'0.75cm' , width: '2.5cm'  ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader></div>
+    <div><ngx-skeleton-loader count="1" appearance="line" [theme]="{height :'0.75cm' , width: '2.5cm'  ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader></div>
+     </div>
+  </section>
+ </div>
 </section>
 
-<section class="w-[16cm] flex flex-col h-[7cm] p-[0.65cm] bg-white rounded-[0.4cm] overflow-hidden shadow-[rgba(0,_0,_0,_0.2)_4px_30px_90px]">
-  <div class="flex justify-around mb-4">
-    <div><ngx-skeleton-loader count="1" appearance="line" [theme]="{height :'0.75cm' , width: '2.5cm'  ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader></div>
-    <div><ngx-skeleton-loader count="1" appearance="line" [theme]="{height :'0.75cm' , width: '2.5cm'  ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader></div>
-    <div><ngx-skeleton-loader count="1" appearance="line" [theme]="{height :'0.75cm' , width: '2.5cm'  ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader></div>
-   </div>
-
-<div class="flex flex-col w-[100%]  px-10">
-  <ngx-skeleton-loader count="3" appearance="line" [theme]="{width: '100%'  ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader>
-
+<div>
+ 
 </div>
-<div class="flex justify-around ">
-  <div><ngx-skeleton-loader count="1" appearance="line" [theme]="{height :'0.75cm' , width: '2.5cm'  ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader></div>
-  <div><ngx-skeleton-loader count="1" appearance="line" [theme]="{height :'0.75cm' , width: '2.5cm'  ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader></div>
-  <div><ngx-skeleton-loader count="1" appearance="line" [theme]="{height :'0.75cm' , width: '2.5cm'  ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader></div>
-  <div><ngx-skeleton-loader count="1" appearance="line" [theme]="{height :'0.75cm' , width: '2.5cm'  ,'background-color': '#e9ecef'}" animation="progress"></ngx-skeleton-loader></div>
-   </div>
 </section>

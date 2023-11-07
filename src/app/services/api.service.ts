@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { tap, throwError } from 'rxjs';
 import { repos } from '../shared/repos.model';
 import { user } from '../shared/userdata.model';
@@ -15,9 +15,22 @@ export class ApiService {
   base_url = 'https://api.github.com/users/';
   reposs: repos[] = [];
   userdata: user[] = [];
+  isLoading: boolean = true;
+
+  selected_data : any;
+  userSelected = new EventEmitter<any>();
+  loading = new EventEmitter<any>();
   //services to get data (name , repo list , repo languages)
   getUser(githubUsername: string) {
-    return this.httpClient.get(this.base_url + githubUsername);
+    // this.isLoading = true;
+    
+    this.loading.emit(this.isLoading)
+
+    this.selected_data = this.httpClient.get(this.base_url + githubUsername);
+    // this.isLoading = false; 
+    // this.loading.emit(this.isLoading)
+    return this.selected_data;
+    
   }
   getRepo(githubUsername: string ,page_number :number ,per_page: Number) {
     console.log(per_page + "hrlloo +" + page_number)
@@ -61,4 +74,7 @@ export class ApiService {
       )
     );
   }
+
+
+
 }
