@@ -1,5 +1,13 @@
-<section *ngFor="let userdata of user" class="mt-[1.5cm] w-[70vw] h-[12cm] p-[0.65cm] flex rounded-[1cm] bg-white shadow-[rgba(0,_0,_0,_0.3)_4px_30px_90px]">
-    <div class="w-[35%] flex items-center justify-evenly flex-col">
+<div class="shadow-[rgba(0,_0,_0,_0.1)_0px_60px_40px_-7px] mx-auto flex items-center justify-center ">
+  <input type="text" #searchvalue class="input w-[50vw] bg-gray-800 font-extrabold py-[0.5cm] px-[1cm] text-white" placeholder="Enter Your GitHub Username " />
+<button (click)="search(searchvalue)" class="flex gap-x-[0.2cm] font-extrabold border-black border-[3px] py-[0.4cm] px-[1.1cm] duration-1000 hover:bg-black hover:text-white">
+  <img src="../assets/images/search.png" alt="" srcset="" class="h-[0.7cm]">
+  FIND</button>
+</div>
+
+<div *ngIf="loader==false">
+  <section  *ngFor="let userdata of user" class="mt-[1.5cm] w-[70vw] h-[12cm] p-[0.65cm] flex rounded-[1cm] bg-white shadow-[rgba(0,_0,_0,_0.3)_4px_30px_90px] " >
+    <div class="w-[35%] flex items-center justify-evenly flex-col" >
       <div class="avatar w-[6cm] h-[6cm] rounded-[3cm] bg-black overflow-hidden">
         <img src={{userdata.avatar_url}} alt="" srcset="" />
       </div>
@@ -42,9 +50,10 @@
       </div>
     </div>
   </section>
+</div>
 
 
-  <section class="bg-white mt-[1.5cm] w-[70vw] h-[12cm] p-[0.65cm] flex rounded-[1cm] shadow-[rgba(0,_0,_0,_0.3)_4px_30px_90px]" *ngIf="true">
+  <section class="bg-white mt-[1.5cm] w-[70vw] h-[12cm] p-[0.65cm] flex rounded-[1cm] shadow-[rgba(0,_0,_0,_0.3)_4px_30px_90px]"  *ngIf="loader">
 
     <div class="w-[35%] flex justify-evenly items-center flex-col">
       <div>
