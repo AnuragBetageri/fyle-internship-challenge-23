@@ -1,47 +1,74 @@
-<section>
-    <div class="repo_card" *ngFor="let repoooo of repomodel">
-        <div>
-          <h1>{{ repoooo.name }}</h1>
-          <div class="count">
-            <div>
-              <h2>{{ repoooo.forks }}</h2>
-              <img
-                src="../../assets/images/fork.png"
-                alt=""
-                srcset=""
-                title="Number of FORKS"
-              />
-            </div>
-            <div>
-              <h2 class="capitalize">{{ repoooo.watchers_count }}</h2>
-              <img
-                src="../../assets/images/eye.png"
-                alt=""
-                srcset=""
-                title="Number of Watchers"
-              />
-            </div>
-            <div>
-              <h2 class="visibility capitalize">{{ repoooo.visibility }}</h2>
-            </div>
-          </div>
+<section
+  class="flex flex-wrap justify-evenly gap-y-20 px-20 py-28 shadow-[inset_0px_-17px_71px_24px_#00000024]"
+>
+  <div
+    class="repo_card w-[16cm] flex flex-col h-auto bg-white rounded-[0.4cm] overflow-hidden shadow-[rgba(0,_0,_0,_0.2)_4px_30px_90px]"
+    *ngFor="let repoooo of repomodel"
+  >
+    <div>
+      <h1
+        class="text-base font-bold p-[0.65cm] border-b-black border-b-2 bg-gray-200 capitalize"
+      >
+        {{ repoooo.name }}
+      </h1>
+      <div
+        class="count flex items-center justify-between px-[0.75cm] py-[0.2cm]"
+      >
+        <div class="flex gap-[0.3cm] items-center">
+          <h2 class="font-bold text-[0.5cm]">{{ repoooo.forks }}</h2>
+          <img
+            src="../../assets/images/fork.png"
+            alt=""
+            srcset=""
+            title="Number of FORK"
+            class="h-[0.6cm] w-auto"
+          />
         </div>
-      
-        <div class="desrip">
-         <p>
-        {{ repoooo.description == null ? 'No description available' : repoooo.description }}
-      </p>
-      
-          
-          <div *ngIf="repoooo.langs.length != 0" class="lang_body">
-            <div *ngFor="let lang of repoooo.langs" class="uppercase">
-              {{ lang }}
-            </div>
-          </div>
-          <div *ngIf="repoooo.langs.length ==0">
-              No data
-            </div>
+        <div class="flex gap-[0.3cm] items-center">
+          <h2 class="capitalize font-bold text-[0.5cm]">
+            {{ repoooo.watchers_count }}
+          </h2>
+          <img
+            src="../../assets/images/eye.png"
+            alt=""
+            srcset=""
+            title="Number of Watchers"
+            class="h-[0.6cm] w-auto"
+          />
+        </div>
+        <div>
+          <h2
+            class="capitalize bg-black text-white px-[0.25cm] py-[0.1cm] rounded-[0.2cm] font-bold"
+          >
+            {{ repoooo.visibility }}
+          </h2>
         </div>
       </div>
-      
+    </div>
+
+    <div class="p-[0.75cm flex flex-col justify-start px-[2rem] mt-5">
+      <p
+        class="text-justify h-[1.6cm] overflow-hidden max-h-[3rem] mb-[0.4cm] font-bold"
+      >
+        {{
+          repoooo.description == null
+            ? "No description available"
+            : repoooo.description
+        }}
+      </p>
+
+      <div
+        *ngIf="repoooo.langs.length != 0"
+        class="flex items-center gap-x-[0.5cm] gap-y-[0.2cm] flex-wrap pb-[0.75cm]"
+      >
+        <div
+          *ngFor="let lang of repoooo.langs"
+          class="uppercase bg-black text-white font-bold px-[0.5cm] py-[0.2cm]"
+        >
+          {{ lang }}
+        </div>
+      </div>
+      <div *ngIf="repoooo.langs.length == 0" class="h-[1.5cm]">No data</div>
+    </div>
+  </div>
 </section>

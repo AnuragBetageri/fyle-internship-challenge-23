@@ -1,43 +1,43 @@
-<div class="MainBody">
-<img src="../assets/images/github.png" class="body_img" alt="" srcset="">
- <div class="header">
-  <h1>
-    GitHub - FIND
-  </h1>
-  <h2>
-    One stop for searching Github Profiles
-  </h2>
-
- </div>
-
-  <div class="searchBar">
-    <input type="text" #searchvalue class="input" placeholder="Enter Your GitHub Username " />
-  <button (click)="search(searchvalue)" >
-    <img src="../assets/images/search.png" alt="" srcset="">
-    FIND</button>
-  </div>
-
-  <app-user-card></app-user-card>
-
-
-  <div *ngIf="flag == false">
-    <h1>{{ username }} : NO DATA FOUND</h1>
-  </div>
-<section class="repoSection">
-  <div class="repo_header">
-    <div class="refreshRepo">
-      <input type="number" #perpagecount placeholder="No. of REPOS per Page" />
-    
-      <button (click)="refreshRepo(perpagecount)">Refresh</button>
-     </div>
-    <div class="pageSwitch">
-      <button (click)="prePage()">Previos</button>
-      <button (click)="nextPage()">Next</button>
-    
+<div class="MainBody flex flex-col items-center gap-y-[1.5cm] py-[1.5cm]">
+  <img src="../assets/images/github.png" class="body_img absolute top-[-1cm] ml-[-1cm] opacity-10 -z-50 h-[90vh]" alt="" srcset="">
+   <div class="header flex flex-col items-center justify-center">
+    <h1 class="text-[2.5cm]">
+      GitHub - FIND
+    </h1>
+    <h2 class="text-[0.5cm] font-bold text-gray-600">
+      One stop for searching Github Profiles
+    </h2>
+  
+   </div>
+  
+    <div class="shadow-[rgba(0,_0,_0,_0.1)_0px_60px_40px_-7px] flex">
+      <input type="text" #searchvalue class="input w-[50vw] bg-gray-800 font-extrabold py-[0.5cm] px-[1cm] text-white" placeholder="Enter Your GitHub Username " />
+    <button (click)="search(searchvalue)" class="flex gap-x-[0.2cm] font-extrabold border-black border-[3px] py-[0.4cm] px-[1.1cm] duration-1000 hover:bg-black hover:text-white">
+      <img src="../assets/images/search.png" alt="" srcset="" class="h-[0.7cm]">
+      FIND</button>
     </div>
+  
+    <app-user-card></app-user-card>
+  
+  
+    <div *ngIf="flag == false">
+      <h1>{{ username }} : NO DATA FOUND</h1>
+    </div>
+  <section class="repoSection py-[5cm] px-[3cm] w-[95vw] flex flex-col">
+    <div class="repo_header bg-fuchsia-300 p-[1cm] flex justify-between items-center">
+      <div class="refreshRepo ">
+        <input class="bg-black py-[0.3cm] px-[0.75cm] border-black border-[3px] font-extrabold text-white" type="number" #perpagecount placeholder="No. of REPOS per Page" />
+      
+        <button (click)="refreshRepo(perpagecount)" class="bg-white text-black border-black border-[3px] py-[0.3cm] px-[0.75cm] font-extrabold">Refresh</button>
+       </div>
+      <div class="pageSwitch">
+        <button (click)="prePage()" class="bg-white text-black border-black border-[3px] w-[3cm] py-[0.3cm] ml-[0.5cm] font-extrabold duration-500 hover:bg-black hover:text-white hover:border-white">Previos</button>
+        <button (click)="nextPage()" class="bg-white text-black border-black border-[3px] w-[3cm] py-[0.3cm] ml-[0.5cm] font-extrabold duration-500 hover:bg-black hover:text-white hover:border-white">Next</button>
+      </div>
+    </div>
+    <app-repocard></app-repocard>
+  </section>
+  
+  
   </div>
-  <app-repocard></app-repocard>
-</section>
-
-
-</div>
+  
